@@ -14,6 +14,7 @@ The project was developed incrementally in the following order:
 6)  ColoredCube.playground
 7)  TextureCubemap.playground
 8)  TextureCubemap2.playground
+9)  LoadModel.playground
 
 The first playground (MonoChrome.playground) is especially important because it not only forms the basis of developing more complex OpenGL programs running as Swift Playgrounds but explains how an instance of a sub-class of NSViewController and NSOpenGLView are instantiated.
 
@@ -43,17 +44,38 @@ Notes on the various playground
 
 HelloWorld.playground: Renders the graphic equivalent of Hello, World.
 
+
 InterpolatedColors.playground: The color attribute at the 4 vertices of the quad (rectangle) is passed to the fragment shader. An interpolated value is sent by OpenGL's rasterizer, to the fragment shader.
+
 
 Tunnel.playground: Renders a tunnel using a pair of shaders from Apple's WWDC 2014 project. An instance of NSTimer is required to provide animation effects. A time-elapsed quantity (based on the starting time of execution of the playground) is passed to the fragment shader.
 
+
 Texture2D.playground: Calls a method of the class GLKTextureLoader to instantiate an OpenGL texture object. This method returns an instance of GLKTextureInfo whose "name" property can be be passed to an OpenGL fragment shader.
+
 
 ColoredCube.playground: A simple demo to send vertex data to the vertex shader. Functions of the GLKit math class are used to supply matrix data to the shaders. In particular, the contents of the model matrix is changed per frame and needs to be updated.
 
+
 TextureCubemap.playground: Instead of sending the color attribute of a vertex down the graphics pipeline, a cube map texture is created programmatically. During a frame update, its texture name (textureID) is bind to the fragment shader.
 
+
 TextureCubemap2.playground: The cube map texture is created from a graphic whose width is 6x its height.
+
+
+LoadModel.playground: A simple demo to use ModelIO methods to load a wavefront (.obj) file. The vertex data (position, normal and texture coordinates) and index data are extracted and uploaded to the GPU using OpenGL functions. In particular, the macOS 10.12 introduced method 
+
+    addUnwrappedTextureCoordinatesForAttributeNamed:
+
+is utilised to ensure the mesh will have generated texture coordinates if this vertex attribute is missing from the initial MDLMesh object instantiated during loading of the asset.
+An MDLAsset method introduced in macOS 10.12
+
+    childObjectsOfClass:
+
+is used to check that the loaded asset has instances of MDLMesh. The 10.11.x playground can not utilised these 2 methods.
+
+Being a simple demo, this playground does not handle multiple instances of MDLMesh and MDLSubmesh. Nor it handle the creation of textures.
+
 
 Additional Notes:
 All the playgrounds of this set should run without problems on macOS 10.12.x, XCode 8.3.2 or later.
