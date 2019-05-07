@@ -78,6 +78,7 @@ public class SPOpenGLView: NSOpenGLView {
         glBindVertexArray(quadVAO)
         glDrawArrays(GLenum(GL_TRIANGLE_STRIP), 0, 4)
         glBindVertexArray(0)
+        glBindProgramPipeline(0)
 
         openGLContext!.update()
         // we're double buffered so need to flush to screen

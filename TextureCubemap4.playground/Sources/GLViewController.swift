@@ -143,6 +143,7 @@ public class SPOpenGLView: NSOpenGLView {
         glBindTexture(GLenum(GL_TEXTURE_CUBE_MAP), textureID)
         glDrawElements(GLenum(GL_TRIANGLES), 36, GLenum(GL_UNSIGNED_BYTE), nil)
         glBindVertexArray(0)
+        glBindProgramPipeline(0)
         glDisable(GLenum(GL_CULL_FACE))
 
         openGLContext!.update()
