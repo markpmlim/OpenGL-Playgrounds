@@ -6,15 +6,17 @@ Description:
 
 The project was developed incrementally in the following order:
 
-1)  MonoChrome.playground
-2)  HelloWorld.playground
-3)  InterpolatedColors.playground
-4)  Tunnel.playground
-5)  Texture2D.playground
-6)  ColoredCube.playground
-7)  TextureCubemap.playground
-8)  TextureCubemap2.playground
-9)  LoadModel.playground
+ 1)  MonoChrome.playground
+ 2)  HelloWorld.playground
+ 3)  HelloWorld4.playground
+ 4)  InterpolatedColors.playground
+ 5)  Tunnel.playground
+ 6)  Texture2D.playground
+ 7)  ColoredCube.playground
+ 8)  TextureCubemap.playground
+ 9)  TextureCubemap2.playground
+10)  TextureCubemap4.playground
+11)  LoadModel.playground
 
 The first playground (MonoChrome.playground) is especially important because it not only forms the basis of developing more complex OpenGL programs running as Swift Playgrounds but explains how an instance of a sub-class of NSViewController and NSOpenGLView are instantiated.
 
@@ -42,7 +44,9 @@ For this set of playgrounds, a view controller is used to manage the initializat
 
 Notes on the various playground
 
-HelloWorld.playground: Renders the graphic equivalent of Hello, World.
+HelloWorld.playground: Renders the graphic equivalent of Hello, World using Modern OpenGL.
+
+HelloWorld4.playground: Renders the graphic equivalent of Hello, World using function calls introduced in OpenGL 4.x. 
 
 
 InterpolatedColors.playground: The color attribute at the 4 vertices of the quad (rectangle) is passed to the fragment shader. An interpolated value is sent by OpenGL's rasterizer, to the fragment shader.
@@ -61,6 +65,9 @@ TextureCubemap.playground: Instead of sending the color attribute of a vertex do
 
 
 TextureCubemap2.playground: The cube map texture is created from a graphic whose width is 6x its height.
+
+
+TextureCubemap4.playground: The cube map texture is created from 6 graphic images in the order specified in Apple’s documentation. Function calls introduced in OpenGL 4.x are used in the rendering of the textured cube.
 
 
 LoadModel.playground: A simple demo to use ModelIO methods to load a wavefront (.obj) file. The vertex data (position, normal and texture coordinates) and index data are extracted and uploaded to the GPU using OpenGL functions. In particular, the macOS 10.12 introduced method 
